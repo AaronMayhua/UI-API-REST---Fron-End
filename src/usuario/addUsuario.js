@@ -23,7 +23,7 @@ export default function AddUsuario() { // los nombres de los componentes en reac
     // submit del form
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8030/usuario", usuario) // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
+        await axios.post("http://localhost:8030/user", usuario) // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
         navigate("/") // ruta o name de la ruta a la cual quiero que se dirija despues del POST o submit 
     };
 
@@ -36,7 +36,7 @@ export default function AddUsuario() { // los nombres de los componentes en reac
                         type={"text"}
                         name="name"
                         class="form-input mt-1 block w-full"
-                        value={name}
+                        value={name} // se agrega el name de la variable declarada  const [usuario, setUsuario] = useState
                         onChange={(e) => onImputChange(e)} />
                 </label>
 
@@ -61,7 +61,11 @@ export default function AddUsuario() { // los nombres de los componentes en reac
                 </label>
 
                 <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Enviar</button>
-                <Link to='/' class="btn bg-red-700 text-white py-2 px-4 rounded">Cancelar</Link>
+                <Link 
+                    to='/' 
+                    class="btn bg-red-700 text-white py-2 px-4 rounded"
+                    >Cancelar
+                </Link>
             </form>
         </div>
 

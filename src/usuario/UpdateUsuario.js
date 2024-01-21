@@ -6,14 +6,14 @@ export default function Editusuario() {
 
     let navigate=useNavigate()
 
-    // Variable del Id
-    const {id_user} = useParams()
+    // Variable del Id para actualizar siempre colocar el mismo nombre que isiste en el back end ejemplo id en el back y cuando declare colocar el mismo name id no colocar idUser si no no funciona y axios reconoce como error ERROR Network Error AxiosError: Network Error at XMLHttpRequest.handleError (http://localhost:3000/static/js/bundle.js:51422:14)
+    const {id_usuer} = useParams()
 
     const [usuario, setUsuario] = useState({
         name: "",
         apellido: "",
         email: ""
-    })
+    });
 
     const { name, apellido, email } = usuario
 
@@ -30,14 +30,15 @@ export default function Editusuario() {
     // submit del form
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:8030/usuario/${id_user}`, usuario); // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
+        await axios.put(`http://localhost:8030/user/${id_usuer}`, usuario); // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
         navigate("/") // ruta o name de la ruta a la cual quiero que se dirija despues del POST o submit 
     };
 
+    // Esto es para guardar la accion que se realizara y luego se llama ala funcion
     const loadUser = async ()=>{
-        const result = await axios.get(`http://localhost:8030/usuario/${id_user}`)
+        const result = await axios.get(`http://localhost:8030/user/${id_usuer}`)
         setUsuario(result.data)
-    }
+    };
 
     return (
         <div>
@@ -73,7 +74,11 @@ export default function Editusuario() {
                 </label>
 
                 <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Enviar</button>
-                <Link to='/' class="btn bg-red-700 text-white py-2 px-4 rounded">Cancelar</Link>
+                <Link 
+                    to='/' 
+                    class="btn bg-red-700 text-white py-2 px-4 rounded"
+                    >Cancelar
+                </Link>
             </form>
         </div>
 
