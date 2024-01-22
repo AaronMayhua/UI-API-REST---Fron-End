@@ -30,13 +30,13 @@ export default function Editusuario() {
     // submit del form
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:8030/user/${id_usuer}`, usuario); // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
+        await axios.put(`http://localhost:8030/api/user/${id_usuer}`, usuario); // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
         navigate("/") // ruta o name de la ruta a la cual quiero que se dirija despues del POST o submit 
     };
 
     // Esto es para guardar la accion que se realizara y luego se llama ala funcion
     const loadUser = async ()=>{
-        const result = await axios.get(`http://localhost:8030/user/${id_usuer}`)
+        const result = await axios.get(`http://localhost:8030/api/user/${id_usuer}`)
         setUsuario(result.data)
     };
 

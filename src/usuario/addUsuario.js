@@ -23,7 +23,7 @@ export default function AddUsuario() { // los nombres de los componentes en reac
     // submit del form
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8030/user", usuario) // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
+        await axios.post("http://localhost:8030/api/user", usuario) // ulr del back end imsonia se coloca el local host de Spring probado en imsonia
         navigate("/") // ruta o name de la ruta a la cual quiero que se dirija despues del POST o submit 
     };
 

@@ -16,13 +16,13 @@ export default function () {
 
     // Haciendo la accio  para listar
     const loadUsuarios = async () => {
-        const result = await axios.get("http://localhost:8030/users"); // axios siempre espera una ruta http://
+        const result = await axios.get("http://localhost:8030/api/users"); // axios siempre espera una ruta http://
         setUsuario(result.data);
     };
 
     // Eliminar buscando por id
     const deleteUser = async(id_usuer)=>{
-        await axios.delete(`http://localhost:8030/user/${id_usuer}`)
+        await axios.delete(`http://localhost:8030/api/user/${id_usuer}`)
         loadUsuarios() // se le implementa la primera accion
     }
 
